@@ -1,6 +1,6 @@
-import ICoin from "./coin.interface";
+import ICoin from "../coins/coin.interface";
 
-export default interface IPeople {
+export default interface IClient {
     _patient: number;
     _name: string;
     _investedCoin: ICoin;

@@ -1,7 +1,4 @@
-import axios from "axios";
-import ICoin from "../interfaces/coin.interface";
-
-export type BTCResponse = {
+export type CoinResponse = {
   market: string;
   trade_date: string;
   trade_time: string;
@@ -30,16 +27,7 @@ export type BTCResponse = {
   timestamp: number;
 };
 
-
-export class BTC implements ICoin {
-  public fetchData = async (): Promise<number | undefined> => {
-    try {
-      const response = await axios.get<BTCResponse[]>(
-        "https://api.upbit.com/v1/ticker?markets=KRW-BTC"
-      );
-      return response.data[0].signed_change_price;
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
-}
+export type CoinData = {
+  trade_price: number;
+  signed_change_price: number;
+};
